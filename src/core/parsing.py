@@ -10,9 +10,9 @@ from __future__ import annotations
 # IMPORTS (Stdlib)
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Literal, Optional
+from typing import Optional
 import docx
-import PyPDF2
+import pypdf
 import pytesseract
 import re # Usado como fallback para limpar HTML quando bs4 não estiver disponível.
 
@@ -40,11 +40,11 @@ class ExtractOptions:
         Controla qual backend usar para PDF (PyPDF2/OCR), se o texto
         deve ser normalizado e o tamanho máximo de texto retornado.
     """
-    prefer_pdfminer: bool = False
-    ocr_if_scanned: bool = False
-    ocr_langs: tuple[str, ...] = ("pt", "en")
-    normalize_whitespace: bool = True
-    max_chars: int = 600_000
+    prefer_pdfminer:bool = False
+    ocr_if_scanned:bool = False
+    ocr_langs:tuple[str, ...] = ("pt", "en")
+    normalize_whitespace:bool = True
+    max_chars:int = 600_000
 
 class ExtractionError(Exception): ...
 """ Erro genérico de extração de Texto """
@@ -74,10 +74,10 @@ def _read_pdf_pypdf2(path: Path) -> str:
         Tenta descriptografar PDFs protegidos com senha vazia.
         Caso falhe ou ocorram erros na extração de alguma página, essas páginas são simplesmente ignoradas.
     """
-    text_parts: list[str] = []
+    text_parts:list[str] = []
 
     with open(path, "rb") as f:
-        reader = PyPDF2.PdfReader(f)
+        reader = pypdf.PdfReader(f)
         if getattr(reader, "is_encrypted", False):
             try:
                 reader.decrypt("")
