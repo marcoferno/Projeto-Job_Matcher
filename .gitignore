@@ -1,0 +1,27 @@
+# Ambiente virtual
+.venv/
+venv/
+
+# Arquivos de configuração local / segredos
+.env
+
+# Configuração do PyCharm
+.idea/
+
+# Cache de Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Dados de cache de embeddings e outros caches gerados
+/src/data/cache/
+data/cache/*
+
+# Currículos locais (o usuário sobe na hora)
+data/curriculos/*
+!data/curriculos/.gitkeep
+
+# Arquivos temporários diversos
+*.log
+.DS_Store

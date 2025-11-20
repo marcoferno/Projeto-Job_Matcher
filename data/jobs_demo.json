@@ -1,0 +1,62 @@
+[
+  {
+    "id": "1",
+    "titulo": "Desenvolvedor Python Backend",
+    "empresa": "TechX",
+    "descricao": "Desenvolvimento de APIs REST com FastAPI, SQL, testes automatizados, Docker. Experiência com nuvem é um diferencial.",
+    "url": "https://exemplo.com/vaga/1",
+    "local": "Remoto",
+    "senioridade": "Pleno",
+    "tags": ["python", "fastapi", "sql", "docker", "testes"]
+  },
+  {
+    "id": "2",
+    "titulo": "Engenheiro de Dados",
+    "empresa": "DataCo",
+    "descricao": "Pipelines em Python, Spark, Airflow, modelagem de dados, SQL e integração com lakes na AWS.",
+    "url": "https://exemplo.com/vaga/2",
+    "local": "São Paulo",
+    "senioridade": "Pleno",
+    "tags": ["python", "spark", "airflow", "aws", "sql"]
+  },
+  {
+    "id": "3",
+    "titulo": "Cientista de Dados",
+    "empresa": "AI Labs",
+    "descricao": "Modelagem estatística, ML supervisionado, scikit-learn, experimentação e comunicação com stakeholders.",
+    "url": "https://exemplo.com/vaga/3",
+    "local": "Remoto",
+    "senioridade": "Sênior",
+    "tags": ["machine learning", "scikit-learn", "experimentos", "estatística"]
+  },
+  {
+    "id": "4",
+    "titulo": "Desenvolvedor Full Stack",
+    "empresa": "WebWorks",
+    "descricao": "Back-end em Python/Django, front-end em React, integração com APIs e testes.",
+    "url": "https://exemplo.com/vaga/4",
+    "local": "Híbrido - Rio de Janeiro",
+    "senioridade": "Pleno",
+    "tags": ["python", "django", "react", "api", "tests"]
+  },
+  {
+    "id": "5",
+    "titulo": "MLOps Engineer",
+    "empresa": "ModelOps",
+    "descricao": "CI/CD de modelos, Docker, Kubernetes, monitoração, orquestração e boas práticas de MLOps.",
+    "url": "https://exemplo.com/vaga/5",
+    "local": "Remoto",
+    "senioridade": "Sênior",
+    "tags": ["mlops", "docker", "kubernetes", "monitoramento", "cicd"]
+  },
+  {
+    "id": "6",
+    "titulo": "Analista de Dados",
+    "empresa": "Insights Inc.",
+    "descricao": "SQL avançado, dashboards, Python para ETL leve, comunicação e análise exploratória.",
+    "url": "https://exemplo.com/vaga/6",
+    "local": "Remoto",
+    "senioridade": "Júnior",
+    "tags": ["sql", "dashboards", "python", "etl"]
+  }
+]
