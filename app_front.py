@@ -209,50 +209,32 @@ def main():
     # ---------------- Sidebar (parâmetros) ----------------
     st.sidebar.header("Configurações da busca")
 
-    # 1. Upload opcional de currículo
+    # 1. Upload de currículo (uso apenas na sessão, sem salvar em data/curriculos)
     uploaded_file = st.sidebar.file_uploader(
         "Envie um currículo em PDF ou DOCX",
         type=["pdf", "docx", "doc"],
-        help="Se preferir, faça upload direto do seu currículo.",
+        help="O arquivo é usado apenas nesta sessão e não fica salvo na aplicação.",
     )
 
+    cv_path: Path | None = None
     if uploaded_file is not None:
-        CURRICULOS_DIR.mkdir(parents=True, exist_ok=True)
+        from tempfile import NamedTemporaryFile
 
-        dest_path = CURRICULOS_DIR / uploaded_file.name
-        with open(dest_path, "wb") as f:
-            f.write(uploaded_file.getbuffer())
-
-    # 2. Detectar currículos disponíveis.
-    curriculos = detectar_curriculos()
-    if not curriculos:
-        st.error(
-            "Nenhum currículo encontrado, envie um currículo em PDF ou DOCX pela barra lateral."
-        )
-        return
-    cv_opcoes = {cv.name: cv for cv in curriculos}
-
-    default_index = 0
-    if uploaded_file is not None and uploaded_file.name in cv_opcoes:
-        default_index = list(cv_opcoes.keys()).index(uploaded_file.name)
-
-    cv_nome = st.sidebar.selectbox(
-        "Selecione o currículo",
-        options=list(cv_opcoes.keys()),
-        index=default_index,
-    )
-
-    cv_path = cv_opcoes[cv_nome]
+        suffix = Path(uploaded_file.name).suffix or ".pdf"
+        with NamedTemporaryFile(delete=False, suffix=suffix) as tmp:
+            tmp.write(uploaded_file.getbuffer())
+            tmp.flush()
+            cv_path = Path(tmp.name)
 
     query = st.sidebar.text_input(
-        "Título ou Área da vaga",
-        value = "Desenvolvedor",
+        "Cargo ou Área da vaga",
+        value = "",
         help = "Ex.: 'desenvolvedor python', 'estágio em TI', 'engenheiro de dados'.",
     )
 
     where = st.sidebar.text_input(
         "Cidade / Região da vaga",
-        value = "Rio de Janeiro",
+        value = "",
         help = "Ex: 'Rio de Janeiro', 'São Paulo' ou deixe vazio para qualquer lugar.",
     )
 
@@ -310,6 +292,10 @@ def main():
     # ---------------- Corpo principal ----------------
     if not buscar:
         st.info("Ajuste os parâmetros na barra lateral e clique em **'Buscar vagas'** para ver as oportunidades.")
+        return
+
+    if cv_path is None:
+        st.warning("Envie um currículo (PDF ou DOCX) na barra lateral para rodar o matching.")
         return
 
     with st.spinner("Rodando matching..."):
