@@ -15,4 +15,3 @@ pytesseract
 sentence-transformers==2.7.0
 click==8.1.7
 streamlit
-python-docx
