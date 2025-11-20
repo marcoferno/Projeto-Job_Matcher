@@ -8,7 +8,7 @@ python-docx==1.1.2
 beautifulsoup4==4.12.3
 numpy~=2.3.3
 urllib3~=2.5.0
-PyPDF2==3.0.1
+pypdf==6.3.0
 pdfminer.six
 pdf2image
 pytesseract
