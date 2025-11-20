@@ -15,12 +15,12 @@ __pycache__/
 *.pyd
 
 # Dados de cache de embeddings e outros caches gerados
-/src/data/cache/
-data/cache/*
+/Job_Matcher/src/data/cache/
+Job_Matcher/data/cache/*
 
 # Currículos locais (o usuário sobe na hora)
-data/curriculos/*
-!data/curriculos/.gitkeep
+Job_Matcher/data/curriculos/*
+!Job_Matcher/data/curriculos/.gitkeep
 
 # Arquivos temporários diversos
 *.log
