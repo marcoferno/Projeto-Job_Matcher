@@ -346,8 +346,25 @@ def main():
 
     st.markdown(
         """
-            Dica: clique no link da vaga (coluna **Link**) com botão direito
-            para abrir em uma nova aba.
+            **Como interpretar o Match (%):**
+    
+            O valor de match é baseado na similaridade entre o texto do seu currículo e o texto da vaga.
+    
+            De forma prática:
+    
+            - **30–40 %** → Vaga alinhada ao seu perfil, forte candidato(a).
+            - **20–30 %** → Vaga mediana / parcialmente alinhada.
+            - **Abaixo de 20 %** → Vaga distante do seu perfil.
+    
+            O mais importante é **comparar as vagas entre si* dentro da mesma busca, 
+            as que tiverem o match mais alto são as que, em teoria, mais combinam com você.
+        """
+    )
+
+    st.markdown(
+        """
+        Dica: clique no link da vaga (coluna **Link**) com botão direito
+        para abrir em uma nova aba.
         """
     )
 
